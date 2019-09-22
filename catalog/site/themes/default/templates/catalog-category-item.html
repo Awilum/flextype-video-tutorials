@@ -3,7 +3,7 @@
 {% block content %}
 <div class="card-deck">
   <div class="card">
-    <div class="catalog-item-preview" style="background-image: url({{ base_url() }}/image/{{ entry.slug }}/{{ entry.image }})"></div>
+    <div class="catalog-item-preview" style="background-image: url({{ base_url() }}/image/{{ entry.slug }}/{{ entry.image }}?w={{ entry.preview_width }}&q={{ entry.preview_quality }})"></div>
     <div class="card-body">
       <h5 class="card-title">{{ entry.title }}</h5>
       <p>{{ entry.text|raw }}</p>

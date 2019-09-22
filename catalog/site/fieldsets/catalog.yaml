@@ -8,6 +8,14 @@ sections:
         title: Title
         type: text
         size: 12
+      preview_quality:
+        title: 'Preview Quality'
+        type: text
+        size: 3/12
+      preview_width:
+        title: 'Preview Width'
+        type: text
+        size: 3/12
   seo:
     title: Seo
     fields:

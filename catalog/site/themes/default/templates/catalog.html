@@ -7,7 +7,7 @@
   {% for category in categories %}
   <div class="col-md-4">
       <div class="card">
-        <div class="catalog-item-preview" style="background-image: url({{ base_url() }}/image/{{ category.slug }}/{{ category.image }})">
+        <div class="catalog-item-preview" style="background-image: url({{ base_url() }}/image/{{ category.slug }}/{{ category.image }}?w={{ entry.preview_width }}&q={{ entry.preview_quality }})">
         </div>
         <div class="card-body">
           <h5 class="card-title text-center">{{ category.title }}</h5>

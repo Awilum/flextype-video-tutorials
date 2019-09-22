@@ -9,10 +9,10 @@
 {% endif %}
 
 {% block content %}
-<div class="row">
-    <div class="col-md-12"> 
-    <b>Brands:</b> 
-        <a href="{{ base_url() }}/{{ entry.slug }}?brand=Trek">Trek</a>, 
+<div class="row mb-4">
+    <div class="col-md-12">
+    <b>Brands:</b>
+        <a href="{{ base_url() }}/{{ entry.slug }}?brand=Trek">Trek</a>,
         <a href="{{ base_url() }}/{{ entry.slug }}?brand=Giant">Giant</a>,
         <a href="{{ base_url() }}/{{ entry.slug }}">All</a>
     </div>
@@ -21,7 +21,7 @@
   {% for item in items %}
   <div class="col-md-4">
       <div class="card">
-        <div class="catalog-item-preview" style="background-image: url({{ base_url() }}/image/{{ item.slug }}/{{ item.image }})"></div>
+        <div class="catalog-item-preview" style="background-image: url({{ base_url() }}/image/{{ item.slug }}/{{ item.image }}?w={{ entry.preview_width }}&q={{ entry.preview_quality }})"></div>
         <div class="card-body">
           <h5 class="card-title">{{ item.title }}</h5>
           <p>Price: {{ item.price }}</p>
