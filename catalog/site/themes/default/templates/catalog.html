@@ -1,0 +1,22 @@
+{% extends "themes/default/templates/partials/base.html" %}
+
+{% set categories = entries.fetchAll('catalog') %}
+
+{% block content %}
+  <div class="row">
+  {% for category in categories %}
+  <div class="col-md-4">
+      <div class="card">
+        <div class="catalog-item-preview" style="background-image: url({{ base_url() }}/image/{{ category.slug }}/{{ category.image }})">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title text-center">{{ category.title }}</h5>
+        </div>
+        <div class="card-footer text-center">
+          <a href="{{ base_url() }}/{{ category.slug }}" class="btn btn-primary">View Category</a>
+        </div>
+      </div>
+  </div>
+  {% endfor %}
+  </div>
+{% endblock %}

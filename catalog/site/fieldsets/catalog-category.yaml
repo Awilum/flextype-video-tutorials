@@ -1,0 +1,21 @@
+title: 'Catalog Category'
+default_field: title
+sections:
+  main:
+    title: Main
+    fields:
+      title:
+        title: Title
+        type: text
+        size: 12
+      image:
+        title: Image
+        type: media_select
+        size: 3/12
+  seo:
+    title: Seo
+    fields:
+      description:
+        title: Description
+        type: textarea
+        size: 12
