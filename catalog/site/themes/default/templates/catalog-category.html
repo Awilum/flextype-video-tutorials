@@ -1,22 +1,30 @@
 {% extends "themes/default/templates/partials/base.html" %}
 
 {% set brand = query.brand %}
+{% set sort_by = query.sort_by %}
+{% set sort_direction = query.sort_direction %}
 
 {% set catalog = entries.fetch('catalog') %}
 
 {% if brand %}
-    {% set items = entries.fetchAll(entry.slug, {'where': {'key': 'brand', 'expr': 'contains', 'value': brand}}) %}
+    {% set items = entries.fetchAll(entry.slug, {'where': {'key': 'brand', 'expr': 'contains', 'value': brand}},
+                                                {'order_by': {'field': sort_by, 'direction': sort_direction}}) %}
 {% else %}
-    {% set items = entries.fetchAll(entry.slug) %}
+    {% set items = entries.fetchAll(entry.slug, {'order_by': {'field': sort_by, 'direction': sort_direction}}) %}
 {% endif %}
 
 {% block content %}
 <div class="row mb-4">
-    <div class="col-md-12">
-    <b>Brands:</b>
+    <div class="col-md-2">
+        <b>Brands:</b>
         <a href="{{ base_url() }}/{{ entry.slug }}?brand=Trek">Trek</a>,
         <a href="{{ base_url() }}/{{ entry.slug }}?brand=Giant">Giant</a>,
         <a href="{{ base_url() }}/{{ entry.slug }}">All</a>
+    </div>
+    <div class="col-md-4">
+        <b>Sort by:</b>
+        <a href="{{ base_url() }}/{{ entry.slug }}?sort_by=brand&sort_direction=asc">Brand A to Z</a>,
+        <a href="{{ base_url() }}/{{ entry.slug }}?sort_by=brand&sort_direction=desc">Brand Z to A</a>
     </div>
 </div>
 <div class="row">
