@@ -1,9 +1,11 @@
 {% extends "themes/default/templates/partials/base.html" %}
 
+{% set catalog = entries.fetch('catalog') %}
+
 {% block content %}
 <div class="card-deck">
   <div class="card">
-    <div class="catalog-item-preview" style="background-image: url({{ base_url() }}/image/{{ entry.slug }}/{{ entry.image }}?w={{ entry.preview_width }}&q={{ entry.preview_quality }})"></div>
+    <div class="catalog-item-preview" style="background-image: url({{ base_url() }}/image/{{ entry.slug }}/{{ entry.image }}?w={{ catalog.preview_width }}&q={{ catalog.preview_quality }})"></div>
     <div class="card-body">
       <h5 class="card-title">{{ entry.title }}</h5>
       <p>{{ entry.text|raw }}</p>
